@@ -59,7 +59,7 @@ create table Ventanilla( -- 6 ventanillas
 CREATE TABLE Horario ( --3 horarios
 	Id INT NOT NULL,
 	Inicio timestamp NOT NULL,
-    Fin timestamp NOT NULL,
+    	Fin timestamp NOT NULL,
 	primary key (Id)
 );
 
