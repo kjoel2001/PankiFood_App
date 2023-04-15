@@ -65,7 +65,7 @@ insert into Cliente (Id , Nombre , IdTelefono, NumeroCuenta) values (20, 'Diego 
 INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (1, 'Ensalada César', 'Ensalada de lechuga romana con aderezo de anchoas', 9.99);
 INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (2, 'Pizza Margarita', 'Pizza de tomate, mozzarella y albahaca', 12.99);
 INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (3, 'Filete de salmón', 'Salmón a la parrilla con salsa de limón y hierbas', 18.99);
-INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (4, 'Pasta Carbonara', 'Pasta con salsa de huevo, panceta, queso parmesano y pimienta negra', 14.99);
+INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (4, 'Pasta Carbonara', 'Pasta con salsa de huevo, panceta, queso parmesano', 14.99);
 INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (5, 'Hamburguesa clásica', 'Hamburguesa con carne de res, queso cheddar, lechuga', 10.99);
 INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (6, 'Sopa de tomate', 'Sopa de tomate casera con hierbas frescas y croutons', 7.99);
 INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (7, 'Lasaña vegetariana', 'Lasaña de vegetales asados, queso ricotta y salsa de tomate', 15.99);
@@ -280,6 +280,24 @@ INSERT INTO OrdenAlimentos (IdOrden, IdAlimento) VALUES (7,10);
 INSERT INTO OrdenAlimentos (IdOrden, IdAlimento) VALUES (8,18);
 INSERT INTO OrdenAlimentos (IdOrden, IdAlimento) VALUES (9,13);
 INSERT INTO OrdenAlimentos (IdOrden, IdAlimento) VALUES (10,3);
+
+
+
+select * from Telefono ;
+select * from Cliente;
+select * from Alimento ;
+select * from Local ;
+select * from Puesto;
+select * from Empleado;
+select * from Ventanilla;
+select * from Horario ;
+select * from EmpleadoHorario ;
+select * from Cajero ;
+select * from Orden ;
+select * from OrdenAlimentos ;
+select * from Reserva ;
+select * from Mesa  ;
+select * from ReservaMesas;
 
 
 
