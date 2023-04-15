@@ -113,7 +113,7 @@ create table Mesa ( --6 mesas
     Id int not null,
     IdLocal int not null,
     primary key (Id),
-    foreign key (IdLocal) references Local (Id),
+    foreign key (IdLocal) references Local (Id)
 );
 
 create table ReservaMesas( -- 3 reservas
