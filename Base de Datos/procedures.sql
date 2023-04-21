@@ -16,3 +16,20 @@ END;
 
 exec Mostrar_Cliente_Reservas_Local(1,1)
 exec Mostrar_Cliente_Reservas_Local(2,3)
+
+
+CREATE OR REPLACE PROCEDURE MostrarEmpleadosHorarioLocal AS
+BEGIN
+  FOR c IN (SELECT e.Nombre, h.Inicio, h.Fin, l.Nombre AS Local 
+            FROM Empleado e 
+            JOIN Local l ON e.IdLocal = l.Id 
+            JOIN EmpleadoHorario eh ON e.Id = eh.IdEmpleado 
+            JOIN Horario h ON eh.IdHorario = h.Id) LOOP
+    DBMS_OUTPUT.PUT_LINE('Empleado: ' || c.Nombre || ' | Horario: ' || c.Inicio || ' - ' || c.Fin || ' | Local: ' || c.Local);
+  END LOOP;
+END;
+/
+--ejecucion 
+BEGIN
+  MostrarEmpleadosHorarioLocal;
+END;
