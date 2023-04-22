@@ -1,3 +1,6 @@
+/*
+Muestra todas las reservas de un cliente en un determinado local 
+*/
 create or replace procedure Mostrar_Cliente_Reservas_Local(id_cliente int, id_local int) as 
 begin 
     DBMS_OUTPUT.PUT_LINE('NOMBRE		RESERVA - LOCAL	NOMBRE_LOCAL		DIRECCION_LOCAL'); 
