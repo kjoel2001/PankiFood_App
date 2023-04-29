@@ -160,3 +160,36 @@ END;
 /
 
 exec obtener_locales_sin_ventas;
+
+/*
+Muestra el total de ventas de un local
+*/
+
+CREATE OR REPLACE PROCEDURE ventas_por_local(local_id IN NUMBER)  AS
+  v_total NUMBER;
+  v_orden_id Orden.Id%TYPE;
+  v_alimento_precio Alimento.Precio%TYPE;
+
+  CURSOR c_ordenes IS
+    SELECT o.Id
+      FROM Orden o
+      JOIN Ventanilla v ON o.IdVentanilla = v.Id
+      WHERE v.IdLocal = local_id;
+
+  CURSOR c_ordenes_alimentos (orden_id Orden.Id%TYPE) IS
+    SELECT oa.IdAlimento, a.Precio
+      FROM OrdenAlimentos oa
+      JOIN Alimento a ON oa.IdAlimento = a.Id
+      WHERE oa.IdOrden = orden_id;
+  BEGIN
+
+  v_total := 0;
+
+  FOR o IN c_ordenes LOOP
+    FOR oa IN c_ordenes_alimentos(o.Id) LOOP
+      v_total := v_total + oa.Precio;
+    END LOOP;
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE('Total de ventas del local ' || local_id|| ': $' || v_total);
+END;
+/
