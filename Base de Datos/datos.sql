@@ -90,6 +90,7 @@ INSERT INTO Local (Id, Nombre, Direccion, Telefono) VALUES (2, 'PankiFood', 'Ave
 INSERT INTO Local (Id, Nombre, Direccion, Telefono) VALUES (3, 'PankiFood', 'Plaza de la Libertad, 3', '555222333');
 INSERT INTO Local (Id, Nombre, Direccion, Telefono) VALUES (4, 'PankiFood', 'Plaza de Armas, 3', '555222333');
 
+
 ---------------------------------------------------------------------
 --						Ventanilla 
 ---------------------------------------------------------------------
