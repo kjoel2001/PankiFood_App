@@ -36,7 +36,6 @@ create table Puesto(
     Nombre varchar(20) not null,
     primary key (Id)
 ); 
-
 --entrega rápida, encargado reserva de locales
 
 create table Empleado( 

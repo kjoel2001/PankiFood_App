@@ -165,7 +165,7 @@ exec obtener_locales_sin_ventas;
 Muestra el total de ventas de un local
 */
 
-CREATE OR REPLACE PROCEDURE ventas_por_local(local_id IN NUMBER)  AS
+CREATE OR REPLACE PROCEDURE ventas_por_local2(local_id IN NUMBER)  AS
   v_total NUMBER;
   v_orden_id Orden.Id%TYPE;
   v_alimento_precio Alimento.Precio%TYPE;
