@@ -88,6 +88,7 @@ INSERT INTO Alimento (Id, Nombre, Descripcion, Precio) VALUES (20, 'Vino tinto',
 INSERT INTO Local (Id, Nombre, Direccion, Telefono) VALUES (1, 'PankiFood', 'Calle de la Rosa, 12', '123456789');
 INSERT INTO Local (Id, Nombre, Direccion, Telefono) VALUES (2, 'PankiFood', 'Avenida del Sol, 8', '987654321');
 INSERT INTO Local (Id, Nombre, Direccion, Telefono) VALUES (3, 'PankiFood', 'Plaza de la Libertad, 3', '555222333');
+INSERT INTO Local (Id, Nombre, Direccion, Telefono) VALUES (4, 'PankiFood', 'Plaza de Armas, 3', '555222333');
 
 ---------------------------------------------------------------------
 --						Ventanilla 

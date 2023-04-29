@@ -1,12 +1,12 @@
 create database PankiFood;
 
-create TABLE Telefono ( -- 32 telefonos
+create TABLE Telefono ( 
     Id int not null,
     Numero varchar(9) not null unique,
     primary key(Id) 
 );
 
-create table Cliente ( --20 clientes
+create table Cliente ( 
     Id int not null,
     Nombre varchar(32) not null,
     IdTelefono int not null,  
@@ -15,7 +15,7 @@ create table Cliente ( --20 clientes
     foreign key (IdTelefono) references Telefono (Id)
 );
 
-create table Alimento ( --20 platos
+create table Alimento ( 
     Id int not null,
     Nombre varchar(32) not null,
     Descripcion varchar(60),
@@ -23,7 +23,7 @@ create table Alimento ( --20 platos
     primary key (Id)
 );
 
-create table Local ( --3 local
+create table Local (
     Id int not null,
     Nombre varchar(32) not null,
     Direccion varchar(32) not null,
@@ -31,13 +31,14 @@ create table Local ( --3 local
     primary key (Id)
 );
 
-create table Puesto( --6 cajerotipo 
+create table Puesto( 
     Id int not null,
     Nombre varchar(20) not null,
     primary key (Id)
-); --entrega rápida, encargado reserva de locales
+); 
+--entrega rápida, encargado reserva de locales
 
-create table Empleado( --9 empelados
+create table Empleado( 
     Id int not null,
     Nombre varchar(32) not null,
     IdTelefono int not null,  
@@ -49,14 +50,14 @@ create table Empleado( --9 empelados
     foreign key (IdPuesto) references Puesto(Id)
 );
 
-create table Ventanilla( -- 6 ventanillas
+create table Ventanilla(
     Id int not null,
     IdLocal int not null,
     primary key (Id),
     foreign key (IdLocal) references Local(Id)
 );
 
-CREATE TABLE Horario ( --3 horarios
+CREATE TABLE Horario ( 
 	Id INT NOT NULL,
 	Inicio timestamp NOT NULL,
     	Fin timestamp NOT NULL,
@@ -70,7 +71,7 @@ create table EmpleadoHorario (
     foreign key (IdHorario) references Horario(Id)
 );
 
-create table Cajero ( -- 9 cajeros
+create table Cajero (
     Id int not null,
     IdVentanilla int not null,
     primary key (Id),
@@ -78,7 +79,7 @@ create table Cajero ( -- 9 cajeros
     foreign key (IdVentanilla) references Ventanilla(Id)
 );
 
-create table Orden ( --10 ordenes
+create table Orden (
     Id int not null,
     IdVentanilla int not null,
     IdCliente int not null,
@@ -96,7 +97,7 @@ create table OrdenAlimentos (
     foreign key (IdAlimento) references Alimento (Id)
 );
 
-create table Reserva ( --10 reservas
+create table Reserva ( 
     Id int not null,
     IdCliente int not null,
     IdLocal int not null,
@@ -107,16 +108,17 @@ create table Reserva ( --10 reservas
     primary key (Id),
     foreign key (IdCliente) references Cliente (Id),
     foreign key (IdLocal) references Local (Id)
-); -- PrecioFinal = PrecioMesa * (HoraFin - HoraInicio)
+); 
+-- PrecioFinal = PrecioMesa * (HoraFin - HoraInicio)
 
-create table Mesa ( --6 mesas
+create table Mesa ( 
     Id int not null,
     IdLocal int not null,
     primary key (Id),
     foreign key (IdLocal) references Local (Id)
 );
 
-create table ReservaMesas( -- 3 reservas
+create table ReservaMesas( 
     IdReserva int not null,
     IdMesa int not null,
     foreign key (IdReserva) references Reserva (Id),
