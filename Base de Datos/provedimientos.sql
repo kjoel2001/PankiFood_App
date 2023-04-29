@@ -121,4 +121,42 @@ END;
 /
 EXECUTE MostrarAlimentos;
 
+/*
+Muestra todos los locales que no han realizado ventas (ordenes)
+*/
 
+CREATE OR REPLACE PROCEDURE obtener_locales_sin_ventas as
+	CURSOR c_locales IS         
+        SELECT l.id, l.nombre, l.direccion, l.telefono
+            FROM Local l
+            LEFT JOIN Orden o ON o.IdVentanilla = l.Id
+            LEFT JOIN OrdenAlimentos oa ON oa.IdOrden = o.Id
+            LEFT JOIN Alimento a ON a.Id = oa.IdAlimento
+            WHERE a.Id IS NULL
+            GROUP BY  l.id, l.nombre, l.direccion, l.telefono;
+    
+    TYPE t_local IS RECORD (
+        Id Local.Id%TYPE,
+        Nombre Local.Nombre%TYPE,
+        Direccion Local.Direccion%TYPE,
+        Telefono Local.Telefono%TYPE
+    );
+
+    locales t_local;
+BEGIN
+    OPEN c_locales;
+    LOOP
+        FETCH c_locales INTO locales;
+        EXIT WHEN c_locales%NOTFOUND;
+		DBMS_OUTPUT.PUT_LINE(locales.Id||'; '||locales.Nombre||'; '||locales.Direccion||'; '||locales.Telefono);
+    END LOOP;
+    
+    CLOSE c_locales;
+
+    EXCEPTION
+        WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: '||SQLCODE||' '||SQLERRM);
+END;
+/
+
+exec obtener_locales_sin_ventas;
