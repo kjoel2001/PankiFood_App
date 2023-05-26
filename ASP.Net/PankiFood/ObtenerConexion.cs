@@ -19,22 +19,5 @@ namespace PankiFood
             OracleConnection conexion = new OracleConnection(oradb);
             return conexion;
         }
-
-        /*
-        string connectionString = "Data Source=Oracle8i;Integrated Security=yes";
-        string queryString = "SELECT * FROM table_name";
-    using (OracleConnection connection = new OracleConnection(connectionString))
-    {
-        OracleCommand command = new OracleCommand(queryString, connection);
-    connection.Open();
-        OracleDataReader reader = command.ExecuteReader();
-        while (reader.Read())
-        {
-            Console.WriteLine(reader[0].ToString());
-        }
-reader.Close();
-    }
-
-        */
     }
 }
