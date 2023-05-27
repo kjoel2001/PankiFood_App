@@ -1,43 +1,55 @@
-﻿using Oracle.DataAccess.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Services;
+using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System.Data;
+using Newtonsoft.Json;
+
 
 namespace PankiFood
 {
     /// <summary>
-    /// Summary description for Procedimientos
+    /// Descripción breve de WebService1
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
     // [System.Web.Script.Services.ScriptService]
-    public class Procedimientos : System.Web.Services.WebService
+
+
+    public class WebService1 : System.Web.Services.WebService
     {
-
-        [WebMethod]
-        public string HelloWorld()
+        private
+            Procedimientos prc;
+        public WebService1()
         {
-            string data = "";
-
-            string connectionString = "DATA SOURCE = localhost:1521 / xe; PERSIST SECURITY INFO = True; USER ID = PankiFood; PASSWORD = admin";
-            string queryString = "SELECT * FROM Cliente";
-            using (OracleConnection connection = new OracleConnection(connectionString))
-            {
-                OracleCommand command = new OracleCommand(queryString, connection);
-                connection.Open();
-                OracleDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    data += reader[1].ToString();
-                }
-                reader.Close();
-            }
-
-            return data;
+            prc = new Procedimientos();
+        }
+        [WebMethod]
+        public string Insertar_Alimento(string Nombre, string Descripcion, float Precio)
+        {
+            prc.Insertar_Alimento_proc(Nombre, Descripcion, Precio);
+            return "Producto insertado";
+        }
+        [WebMethod]
+        public string Listado_Alimento()
+        {
+            string Tabla = "Alimento";
+            return prc.Select_ali(Tabla);
+        }
+        [WebMethod]
+        public string Eliminar_Alimento(int Id) 
+        { 
+            prc.Eliminar_Alimento_proc(Id);
+            return "Producto eliminado";
+        }
+        [WebMethod]
+        public string Actualizar_Alimento(int Id, string Nombre, string Descripcion, float Precio)
+        {
+            prc.Actualizar_Producto_proc(Id, Nombre, Descripcion, Precio);
+            return "Producto actulizado";
         }
     }
 }
