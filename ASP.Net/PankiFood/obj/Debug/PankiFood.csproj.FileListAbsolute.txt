@@ -58,3 +58,5 @@ E:\universidad\semester6\SoftwareProcesses\PankiFood\PankiFood_App\ASP.Net\Panki
 E:\universidad\semester6\SoftwareProcesses\PankiFood\PankiFood_App\ASP.Net\PankiFood\obj\Debug\PankiFood.csproj.CopyComplete
 E:\universidad\semester6\SoftwareProcesses\PankiFood\PankiFood_App\ASP.Net\PankiFood\obj\Debug\PankiFood.dll
 E:\universidad\semester6\SoftwareProcesses\PankiFood\PankiFood_App\ASP.Net\PankiFood\obj\Debug\PankiFood.pdb
+E:\universidad\semester6\SoftwareProcesses\PankiFood\PankiFood_App\ASP.Net\PankiFood\bin\Newtonsoft.Json.dll
+E:\universidad\semester6\SoftwareProcesses\PankiFood\PankiFood_App\ASP.Net\PankiFood\bin\Newtonsoft.Json.xml
