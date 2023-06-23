@@ -36,7 +36,17 @@
         <asp:TextBox ID="Txt_prec2" runat="server"></asp:TextBox>
     <br />
         <asp:Button ID="Button3" runat="server" Text="Enviar" OnClick="Button3_Click" />
+    <br />
+        <asp:GridView ID="GridViewAlimentos" runat="server" AutoGenerateColumns="false">
+    <Columns>
+        <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-Width="50px" />
+        <asp:BoundField DataField="NOMBRE" HeaderText="Nombre" ItemStyle-Width="150px" />
+        <asp:BoundField DataField="DESCRIPCION" HeaderText="Descripción" ItemStyle-Width="250px" />
+        <asp:BoundField DataField="PRECIO" HeaderText="Precio" ItemStyle-Width="100px" />
+    </Columns>
+    <HeaderStyle BackColor="#E0E0E0" />
+        </asp:GridView>
+
+    <br />
     </main>
 </asp:Content>
-
-
