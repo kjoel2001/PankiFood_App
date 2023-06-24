@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -12,17 +13,30 @@ namespace Pankyfood
     public partial class Contact : Page
     {
         ServiceReference1.WebService1SoapClient conexion = new ServiceReference1.WebService1SoapClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Verificar si el usuario está autenticado
+            if (!User.Identity.IsAuthenticated)
+            {
+                // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                // El usuario ha iniciado sesión, continuar con el procesamiento de la página
+
+               
+            }
             if (!IsPostBack)
             {
-                
+
                 string json = conexion.Listado_Alimento();
 
-                
+
                 DataTable dt = JObject.Parse(json)["Table"].ToObject<DataTable>();
 
-                
+
                 GridViewAlimentos.DataSource = dt;
                 GridViewAlimentos.DataBind();
             }
@@ -125,9 +139,14 @@ namespace Pankyfood
             Txt_prec2.Text = string.Empty;
             
         }
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Cerrar sesión del usuario
+            FormsAuthentication.SignOut();
 
-
-
+            // Redirigir al inicio de sesión o a otra página de tu elección
+            Response.Redirect("Login.aspx");
+        }
     }
 
 }

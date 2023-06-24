@@ -42,6 +42,13 @@ namespace Pankyfood.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Actualizar_Alimento", ReplyAction="*")]
         System.Threading.Tasks.Task<Pankyfood.ServiceReference1.Actualizar_AlimentoResponse> Actualizar_AlimentoAsync(Pankyfood.ServiceReference1.Actualizar_AlimentoRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento Nombre del espacio de nombres http://tempuri.org/ no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AgregarUsuario", ReplyAction="*")]
+        Pankyfood.ServiceReference1.AgregarUsuarioResponse AgregarUsuario(Pankyfood.ServiceReference1.AgregarUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AgregarUsuario", ReplyAction="*")]
+        System.Threading.Tasks.Task<Pankyfood.ServiceReference1.AgregarUsuarioResponse> AgregarUsuarioAsync(Pankyfood.ServiceReference1.AgregarUsuarioRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -329,6 +336,78 @@ namespace Pankyfood.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AgregarUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AgregarUsuario", Namespace="http://tempuri.org/", Order=0)]
+        public Pankyfood.ServiceReference1.AgregarUsuarioRequestBody Body;
+        
+        public AgregarUsuarioRequest() {
+        }
+        
+        public AgregarUsuarioRequest(Pankyfood.ServiceReference1.AgregarUsuarioRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AgregarUsuarioRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string Nombre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string contrasena;
+        
+        public AgregarUsuarioRequestBody() {
+        }
+        
+        public AgregarUsuarioRequestBody(string Nombre, string contrasena) {
+            this.Nombre = Nombre;
+            this.contrasena = contrasena;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AgregarUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AgregarUsuarioResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Pankyfood.ServiceReference1.AgregarUsuarioResponseBody Body;
+        
+        public AgregarUsuarioResponse() {
+        }
+        
+        public AgregarUsuarioResponse(Pankyfood.ServiceReference1.AgregarUsuarioResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AgregarUsuarioResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string AgregarUsuarioResult;
+        
+        public AgregarUsuarioResponseBody() {
+        }
+        
+        public AgregarUsuarioResponseBody(string AgregarUsuarioResult) {
+            this.AgregarUsuarioResult = AgregarUsuarioResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebService1SoapChannel : Pankyfood.ServiceReference1.WebService1Soap, System.ServiceModel.IClientChannel {
     }
@@ -462,6 +541,33 @@ namespace Pankyfood.ServiceReference1 {
             inValue.Body.Descripcion = Descripcion;
             inValue.Body.Precio = Precio;
             return ((Pankyfood.ServiceReference1.WebService1Soap)(this)).Actualizar_AlimentoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Pankyfood.ServiceReference1.AgregarUsuarioResponse Pankyfood.ServiceReference1.WebService1Soap.AgregarUsuario(Pankyfood.ServiceReference1.AgregarUsuarioRequest request) {
+            return base.Channel.AgregarUsuario(request);
+        }
+        
+        public string AgregarUsuario(string Nombre, string contrasena) {
+            Pankyfood.ServiceReference1.AgregarUsuarioRequest inValue = new Pankyfood.ServiceReference1.AgregarUsuarioRequest();
+            inValue.Body = new Pankyfood.ServiceReference1.AgregarUsuarioRequestBody();
+            inValue.Body.Nombre = Nombre;
+            inValue.Body.contrasena = contrasena;
+            Pankyfood.ServiceReference1.AgregarUsuarioResponse retVal = ((Pankyfood.ServiceReference1.WebService1Soap)(this)).AgregarUsuario(inValue);
+            return retVal.Body.AgregarUsuarioResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Pankyfood.ServiceReference1.AgregarUsuarioResponse> Pankyfood.ServiceReference1.WebService1Soap.AgregarUsuarioAsync(Pankyfood.ServiceReference1.AgregarUsuarioRequest request) {
+            return base.Channel.AgregarUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Pankyfood.ServiceReference1.AgregarUsuarioResponse> AgregarUsuarioAsync(string Nombre, string contrasena) {
+            Pankyfood.ServiceReference1.AgregarUsuarioRequest inValue = new Pankyfood.ServiceReference1.AgregarUsuarioRequest();
+            inValue.Body = new Pankyfood.ServiceReference1.AgregarUsuarioRequestBody();
+            inValue.Body.Nombre = Nombre;
+            inValue.Body.contrasena = contrasena;
+            return ((Pankyfood.ServiceReference1.WebService1Soap)(this)).AgregarUsuarioAsync(inValue);
         }
     }
 }

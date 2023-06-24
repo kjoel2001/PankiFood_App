@@ -126,5 +126,31 @@ namespace PankiFood
             c.Dispose();
         }
 
+        public void AgregarUsuario(string nombre, string contrasena)
+        {
+            OracleConnection c = gc.conn();
+            c.Open();
+
+            OracleParameter parametro1 = new OracleParameter();
+            parametro1.OracleDbType = OracleDbType.Varchar2;
+            parametro1.Value = nombre;
+
+            OracleParameter parametro2 = new OracleParameter();
+            parametro2.OracleDbType = OracleDbType.Varchar2;
+            parametro2.Value = contrasena;
+
+            OracleCommand comando = new OracleCommand();
+            comando.Connection = c;
+
+            comando.CommandText = "AgregarUsuario";
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+
+            comando.Parameters.Add("p_Nombre", OracleDbType.Varchar2).Value = parametro1.Value;
+            comando.Parameters.Add("p_Contrasena", OracleDbType.Varchar2).Value = parametro2.Value;
+            comando.ExecuteNonQuery();
+
+            c.Dispose();
+        }
+
     }
 }

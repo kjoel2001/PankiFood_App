@@ -51,6 +51,13 @@ namespace PankiFood
             prc.Actualizar_Producto_proc(Id, Nombre, Descripcion, Precio);
             return "Producto actulizado";
         }
+        [WebMethod]
+        public string AgregarUsuario( string Nombre, string contrasena)
+        {
+            prc.AgregarUsuario(Nombre, contrasena);
+            return "Usuario insertado";
+        }
+
 
     }
 }

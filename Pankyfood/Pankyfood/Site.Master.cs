@@ -13,5 +13,9 @@ namespace Pankyfood
         {
 
         }
+        protected bool IsUserLoggedIn()
+        {
+            return HttpContext.Current.User.Identity.IsAuthenticated;
+        }
     }
 }

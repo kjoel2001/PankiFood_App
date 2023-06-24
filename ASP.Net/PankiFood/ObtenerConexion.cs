@@ -14,7 +14,7 @@ namespace PankiFood
         }
         public OracleConnection conn()
         {
-            string oradb = "DATA SOURCE = localhost:1521 / xe; PERSIST SECURITY INFO = True; USER ID = system; PASSWORD = 12345678"; ;
+            string oradb = "DATA SOURCE = localhost:1521 / xe; PERSIST SECURITY INFO = True; USER ID = pankifood; PASSWORD = admin";
             OracleConnection conexion = new OracleConnection(oradb);
             return conexion;
         }
